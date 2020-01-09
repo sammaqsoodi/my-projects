@@ -1,0 +1,69 @@
+{% extends "homePage/main.html" %}
+{% load static %}
+{% block content %}
+  <div class="hero" id="particles-js">
+    <h1 >Hero Text</h1>
+  </div>
+{% if messages %}
+{% for message in messages %}
+  {% if message.tags == 'success' %}
+    <div" class=" success-msg ">
+      {{ message }}
+    </div">
+  {% endif %}  
+{% endfor %}
+{% endif %}
+  <div class="wrapper" >
+  <section class="top-container" >
+    <header class="showcase">
+      <h1> Sam Disign </h1>
+      <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam nulla hic aperiam, cupiditate dolores deleniti! </p>
+      <br>
+      <a href="#" class="btn"> ohhom</a>
+    </header>
+    <div class="top-box top-box-a">
+      <h4> login </h4>
+      <p class="price">Lorem ipsum dolor sit amet.</p>
+      <br>
+      <a href="#" class="btn"> buy now </a>
+    </div>
+    <div class="top-box top-box-b">
+      <h4> regeister </h4>
+      <p class="price">Lorem ipsum dolor sit amet.</p>
+      <br>
+      <a href="#" class="btn"> buy now </a>
+    </div>
+  </section>
+  <section class="boxes">
+    <div class="box">
+      <i class="fab fa-android fa-4x"></i>
+      <h3>android</h3>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci, voluptates.</p>
+    </div>
+    <div class="box">
+      <i class="fab fa-apple fa-4x"></i>
+      <h3>Apple</h3>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci, voluptates.</p>
+    </div>
+    <div class="box">
+      <i class="fab fa-500px fa-4x"></i>
+      <h3>500 px</h3>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci, voluptates.</p>
+    </div>
+    <div class="box">
+      <i class="fas fa-bacon fa-4x"></i>
+      <h3>Bacon</h3>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci, voluptates.</p>
+    </div>
+  </section>
+
+<section class="info">
+  <img src="http://www.bruna.cat/imgdownload/full/0/995/wallpaper-website.jpg" alt="">
+  <div>
+    <h2>somthing for now</h2>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur hic possimus consequuntur explicabo officia, in magnam velit temporibus at sed nostrum, sequi, corrupti esse obcaecati mollitia sapiente. Necessitatibus, deleniti assumenda?</p>
+    <br>
+    <a href="#" class="btn"> learn more </a>
+  </div>
+</section>
+  {% endblock content %}

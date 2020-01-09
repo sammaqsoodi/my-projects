@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://kit.fontawesome.com/ade7644f5c.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="{% static 'dist/css/main.css/' %}">
+  {% if title %}
+    <title>Sam disign - {{ title }}</title>
+    {% else %}
+    <title>Sam disign</title>
+    {% endif %}
+</head>
+<body> 
+  {% include 'homePage/nav.html' %}
+  {% block content %}
+
+  {% endblock %}
+  {% include 'homePage/footer.html' %}
+  <script src="{% static 'dist/js/main.js' %}" ></script>
+  <script type="text/javascript" src="{% static 'dist/js/particles.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'dist/js/app.js' %}"></script>
+</body>
+</html>

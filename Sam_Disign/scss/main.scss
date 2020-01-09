@@ -1,0 +1,250 @@
+@import 'hero';
+@import 'header';
+@import 'media';
+@import 'animations';
+@import 'about';
+@import 'blog';
+@import 'logingnregister';
+
+$primary: rgba(0,0,0, 0.1);
+$dark : #333;
+$light : #fff;
+$shadow: 0 1px 5px rgba(104,104,104,0.8);
+
+$btn-size :90px;
+$colors:(
+  'facebook': #3b5998,
+  'twitter': #3cf,
+  'youtube': #c4302b,
+  'instagram': #e95950,
+  'linkedin': #0e76a8
+);
+
+@mixin animate-bounce {
+  transition: all 0.35s cubic-bezier(0.31, -0.205, 0.43, 1.8);
+}
+
+
+#particles-js{
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  h1{
+    position: absolute;
+    font-size: 4rem;
+    text-transform: uppercase;
+    text-align: center;
+    background: rgba(0,0,0, 0.2);
+    padding: 2rem;
+    border-radius: 20px 0;
+  }
+}
+
+*, *::before, *::after{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body{
+  font-family: sans-serif;
+  background:url('https://www.netpremacy.com/wp-content/uploads/2018/09/Background-website-01.jpg')
+  no-repeat center;
+  background-size: cover;  
+}
+.container{
+  width: 80%;
+  margin: 2rem auto;
+
+
+  p{
+    margin: 1rem 0;
+    
+  }
+}
+
+.btn{
+  background: $dark ;
+  color: $light;
+  padding: 0.6rem 1.3rem;
+  text-decoration: none;
+  border: 0;
+}
+
+img{
+  max-width: 100%;
+}
+
+.wrapper{
+  line-height: 1.4; 
+  margin: 50px 50px;
+  display: grid;
+  grid-gap: 20px;
+}
+
+.top-container{
+  display: grid;
+  grid-gap: 20px;
+  grid-template-areas: 
+  'showcase showcase top-box-a'
+  'showcase showcase top-box-b';
+}
+
+.showcase{
+  grid-area: showcase;
+  min-height: 400px;
+  background:url('https://cdn-media-1.freecodecamp.org/images/ghF0kB011QpDd5vWRlaUjD1H0NxV6dLsKfjf') no-repeat center ;
+  background-size: cover;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  box-shadow: $shadow;
+
+
+  h1{
+    font-size: 4rem;
+    margin-bottom: 0;
+    color: $light;
+  }
+
+  p{
+    font-size: 1.3rem;
+    margin-top: 0;
+    color: $light;
+  }
+  
+}
+
+
+.top-box{
+  background: $primary ;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  box-shadow: $shadow;
+  padding: 1.5rem;
+
+  .price{
+    font-size: 1.5rem;
+  }
+}
+
+.top-box-a{
+  grid-area: top-box-a;
+}
+.top-box-b{
+  grid-area: top-box-b;
+}
+
+
+.boxes{
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit,minmax(200px, 1fr));
+}
+
+.box{
+  background: $primary;
+  text-align: center;
+  padding: 1.5rem 2rem;
+  box-shadow: $shadow;
+}
+
+.info{
+  background: $primary;
+  box-shadow: $shadow;
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 3rem;
+}
+
+footer{
+  margin-top: .3rem;
+  background: $dark;
+  color: $light;
+  text-align: center;
+  padding: 1rem;
+
+}
+.glitch-social{
+  margin-top: 1rem;
+  background: #000;
+  text-align: center;
+  border-radius: 3px;
+  padding: 1rem ;
+  
+  .btn-social{
+    display: inline-block;
+    width: $btn-size ;
+    height: $btn-size ;
+    position: relative;
+    color: #fff;
+
+    .fab{
+      color: #fff;
+      font-size: 2rem;
+      line-height: $btn-size;
+    }
+
+    &:focus .fab,
+    &:hover .fab{
+      animation: glitchy 200ms infinite;
+    }
+  }
+  @keyframes glitchy {
+    0%{
+      text-shadow: 5px 4px #f44336, -5px -6px #2196f3;
+    }
+    25%{
+      text-shadow: 5px -6px #f44336, 5px 4px #2196f3;
+    }
+    50%{
+      text-shadow: 5px -4px #f44336, -8px 4px #2196f3;
+    }
+    75%{
+      text-shadow: -8px -4px #f44336, -5px -4px #2196f3;
+    }
+    100%{
+      text-shadow: -5px 0 #f44336, 5px -4px #2196f3;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .top-container{
+    grid-template-areas:
+    'showcase showcase'
+    'top-box-a top-box-b';
+  }
+
+  .showcase h1{
+    font-size: 2.5rem;
+  }
+
+  .info{
+    grid-template-columns: 1fr ;
+
+
+    .btn{
+      display: block;
+      text-align: center;
+      margin: auto;
+
+    }
+  }
+}
+@media screen and (max-width: 500px) {
+  .top-container{
+    grid-template-areas:
+    'showcase '
+    'top-box-a'
+    'top-box-b';
+  }
+}
+

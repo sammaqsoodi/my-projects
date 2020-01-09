@@ -1,0 +1,26 @@
+{% extends "homePage/main.html" %}
+{% load static %}
+{% block content %}
+<div class="hero" id="particles-js">
+  <h1 >Logout</h1>
+</div>
+{% if messages %}
+{% for message in messages %}
+  {% if message.tags == success %}
+    <div" class="  ">
+      {{ message }}
+    </div">
+  {% endif %}  
+{% endfor %}
+{% endif %}
+<div class="logout-contaner">
+  <h2>!!! با موفقیت از اکانت خود خارج شدید </h2>
+  </div>
+  <div class="logout-text-contaner">
+    <a class="" href="{% url 'login' %}"> دوباره وارد شوید </a> 
+  </div>
+</div>
+
+
+
+{% endblock content %}

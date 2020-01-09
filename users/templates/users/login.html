@@ -1,0 +1,40 @@
+{% extends "homePage/main.html" %}
+{% load static %}
+{% block content %}
+  <div class="hero" id="particles-js">
+    <h1 >Login</h1>
+  </div>
+  {% if messages %}
+    {% for message in messages %}
+      {% if message.tags == 'success' %}
+        <div class=" success-msg-login ">
+        {{ message }}
+        </div>
+      {% endif %}  
+    {% endfor %}
+  {% endif %}
+  <div class="login-wrapper" >
+    <form method="POST" class="form">
+      {% csrf_token %}
+      <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="">
+      <h2> ورود </h2>
+      <div class="input-group">
+        <input type="text" name="username" id="registerUser" required >
+        <label class="required"  for="registerUser">  نام کاربری </label>
+      </div>   
+      <div class="input-group">
+        <input type="password" name="password" id="registerPassword" required >
+        <label class="required" for="registerPassword">گذرواژه</label> 
+      </div>
+      <input class="submit-btn" type="submit" value="ورود">
+      <a href="{% url 'register' %}" class="have-acount">اکانت ندارید؟ همین الان ثبت نام کنید</a>
+      <div class="messges">
+        {% for message in messages %}
+          {% if message.tags == 'info' %}
+            <div class=" info-msg ">{{ message }}</div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </form>
+  </div>
+{% endblock content %}  

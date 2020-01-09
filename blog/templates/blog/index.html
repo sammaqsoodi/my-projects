@@ -1,0 +1,21 @@
+{% extends "homePage/main.html" %}
+{% load static %}
+{% block content %}
+<div class="hero" id="particles-js">
+  <h1>بلاگ</h1>
+</div>
+{% for post in posts %}
+<div class="blog-wrapper" >
+  <article class="blog-post-contaner" >
+    <div class="post-content">
+      <div class="metadate">
+        <small>{{post.date_posted|date:"F d, Y"}}</small>
+        <a href="#">{{post.author}}</a>
+      </div>
+        <h2><a href="#"> {{post.title}} </a></h2>
+        <p>{{post.content}}</p>
+    </div>
+  </article>
+</div>
+{% endfor %}
+{% endblock content %}

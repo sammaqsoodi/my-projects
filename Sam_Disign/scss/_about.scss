@@ -1,0 +1,25 @@
+.about-container{
+  direction: rtl;
+  margin: .5rem;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 1px 5px rgba(104,104,104,0.8);
+}
+
+.about-content{
+  display: block;
+  justify-content: center;
+  align-items: center;
+
+  h1{
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  p{
+    margin: 1rem;
+    padding: 1rem;
+  }
+}

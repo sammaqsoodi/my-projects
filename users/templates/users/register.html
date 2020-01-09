@@ -1,0 +1,55 @@
+{% extends "homePage/main.html" %}
+{% load static %}
+{% block content %}
+<div class="hero" id="particles-js">
+  <h1 >Register</h1>
+</div>
+{% if messages %}
+{% for message in messages %}
+  {% if message.tags == success %}
+    <div" class="  ">
+      {{ message }}
+    </div">
+  {% endif %}  
+{% endfor %}
+{% endif %}
+<div class="login-wrapper" >
+  <form method="POST" class="form">
+    {% csrf_token %}
+    <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="">
+    <h2>ثبت نام</h2>
+    <div class="input-group">
+      <input type="text" name="first_name" id="registerFirst"  >
+      <label for="registerFirst"> نام </label>
+    </div>
+    <div class="input-group">
+      <input type="text" name="last_name" id="registerLast" >
+      <label for="registerLast"> نام خانوادگی </label>
+    </div>
+    <div class="input-group">
+      <input type="text" name="username" id="registerUser" required >
+      <label class="required"  for="registerUser">  نام کاربری </label> 
+    </div>
+    <div class="input-group">
+      <input type="email" name="email" id="registerEmail" required >
+      <label class="required"  for="registerEmail"> ایمیل </label> 
+    </div>
+    <div class="input-group">
+      <input type="password" name="password1" id="registerPassword1" required >
+      <label class="required" for="registerPassword1"> گذرواژه </label> 
+    </div>
+    <div class="input-group">
+      <input type="password" name="password2" id="registerPassword2" required >
+      <label class="required"  for="registerPassword2"> تایید گذرواژه  </label> 
+    </div>
+    <input class="submit-btn" type="submit" value="ثبت نام">
+    <a href="{% url 'login' %}" class="have-acount">از قبل اکانت ساخته اید؟ وارد شوید</a>
+    <div class="messges">
+      {% for message in messages %}
+      <div class=" info-msg ">{{ message }}</div>
+      {% endfor %}
+    </div>
+  </form>
+</div>
+
+{% endblock content %}

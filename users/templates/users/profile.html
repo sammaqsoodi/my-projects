@@ -1,0 +1,68 @@
+{% extends "homePage/main.html" %}
+{% load static %}
+{% block content %}
+<div class="hero" id="particles-js">
+  <h1 >Profile</h1>
+</div>
+{% if messages %}
+{% for message in messages %}
+  {% if message.tags == success %}
+    <div" class="  ">
+      {{ message }}
+    </div">
+  {% endif %}  
+{% endfor %}
+{% endif %}
+
+<div class="profil-section">
+  <div class="profile-media">
+    <div class="profile-body">
+      <h2>{{user.username}} </h2>
+      <p> {{user.email}} </p> 
+    </div>
+  </div>
+
+  {% if messages %}
+    {% for message in messages %}
+      {% if message.tags == 'success' %}
+        <div class=" success-msg-login ">
+        {{ message }}
+        </div>
+      {% endif %}  
+    {% endfor %}
+  {% endif %}
+  <div class="login-wrapper" >
+    <form method="POST" class="form">
+      {% csrf_token %}
+      <img src="{{ user.profile.image.url }}" alt="">
+      <h2> اطلاعات حساب </h2>
+      <div class="input-group">
+        <input type="text" name="first_name" id="registerfirst"  >
+        <label   for="registerUser">  نام  </label>
+      </div>  <div class="input-group">
+        <input type="text" name="last_name" id="registerlast"  >
+        <label   for="registerUser">  نام خانوادگی </label>
+      </div>  
+      <div class="input-group">
+        <input type="text" name="username" id="registerUser" required >
+        <label class="required"  for="registerUser">  نام کاربری </label>
+      </div>   
+      <div class="input-group">
+        <input type="email" name="email" id="registeremail" required >
+        <label class="required" for="registeremail">ایمیل</label> 
+      </div>
+      <input class="submit-btn" type="submit" value="تایید">
+      <div class="messges">
+        {% for message in messages %}
+          {% if message.tags == 'info' %}
+            <div class=" info-msg ">{{ message }}</div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock content %}
+
+
